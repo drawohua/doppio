@@ -23,6 +23,18 @@
 <p><strong>How do I open the menu?</strong> Right-click (or Control-click) the cup. A normal click turns Doppio on or off.</p>
 <p><strong>How do I keep awake until a Terminal command finishes?</strong> Run<br>
 <code>open -g "doppio://wait?label=Job" &amp;&amp; your-command; open -g "doppio://done?label=Job"</code></p>
+<h2>All Terminal and script commands</h2>
+<p>Doppio understands these <code>doppio://</code> links. Run them with <code>open -g "…"</code> (keep the quotes). The same list is in the app: right-click the cup › Until a Task Finishes › From Terminal or Scripts…</p>
+<ul>
+<li><code>doppio://start</code> — turn on (add <code>?minutes=30</code> for a timer)</li>
+<li><code>doppio://stop</code> — turn off</li>
+<li><code>doppio://toggle</code> — turn on or off</li>
+<li><code>doppio://wait?label=NAME</code> — stay on until the matching <code>done</code></li>
+<li><code>doppio://wait?label=NAME&amp;pid=1234</code> — stay on until process 1234 quits</li>
+<li><code>doppio://done?label=NAME</code> — that task has finished; add <code>&amp;notify=0</code> for no notification</li>
+</ul>
+<p>A task started this way never turns off a session you started yourself.</p>
+<p><strong>AI coding tools</strong> such as Claude Code can call these from hooks so your Mac stays awake while they work: <code>doppio://wait?label=Claude</code> when a prompt is sent, <code>doppio://done?label=Claude&amp;notify=0</code> when it finishes.</p>
 <p><strong>Does Doppio change my settings?</strong> No. It uses Apple's standard power management while it's on. Quit Doppio and everything is as before.</p>
 <p><strong>Why does it ask for calendar access?</strong> Only if you turn on "During Calendar Events". Your events are read on your Mac and never leave it.</p>
 <footer>© 2026 Howard Au · Doppio</footer>
